@@ -16,9 +16,9 @@ for i in range(0,30):
     print('request: ' + req_url)
     try:
         with request.urlopen(req_url) as response:
-            r = json.loads(response.read())
-            print('response: ' + json.dumps(r))
-            print('\033[91m' +  'solution for ' + formated_date + ': ' +  r['solution'] + '\033[0m' '\n')
+            json_data = json.loads(response.read())
+            print('response: ' + json.dumps(json_data))
+            print('\033[91m' +  'solution for ' + formated_date + ': ' +  json_data['solution'] + '\033[0m' '\n')
     except http_error.HTTPError as e:
         print(e)
         break
