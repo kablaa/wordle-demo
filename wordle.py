@@ -19,5 +19,6 @@ for i in range(0,30):
             r = json.loads(response.read())
             print('response: ' + json.dumps(r))
             print('solution for ' + formated_date + ': ' + r['solution'] + '\n')
-    except http_error.HTTPError:
+    except http_error.HTTPError as e:
+        print(e)
         break
