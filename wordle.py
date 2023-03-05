@@ -13,11 +13,9 @@ for i in range(0, 30):
     date = datetime.today() + timedelta(i)
     formated_date = date.strftime('%Y-%m-%d')
     req_url = URL.format(formated_date)
-    # print('request: ' + req_url)
     try:
         with request.urlopen(req_url) as response:
             json_data = json.loads(response.read())
-            # print('response: ' + json.dumps(json_data))
             print('solution for ' + formated_date + ': ' +  json_data['solution'])
     except http_error.HTTPError as e:
         print(formated_date + ' => ' + str(e))
